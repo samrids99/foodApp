@@ -12,7 +12,7 @@ import {
 import { addIcons } from 'ionicons';
 import { chevronDownCircle } from 'ionicons/icons';
 import SwiperCore, { Swiper } from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 import { EffectCoverflow } from 'swiper/modules';
 
 SwiperCore.use([EffectCoverflow, Pagination]);
@@ -40,7 +40,7 @@ export class HomePage implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     const swiper = new Swiper('.swiper', {
-      modules: [Navigation, Pagination], // Include required modules
+      modules: [Pagination], // Include required modules
       effect: "coverflow",
       grabCursor: true,
       centeredSlides: true,
@@ -55,10 +55,6 @@ export class HomePage implements OnInit, AfterViewInit {
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
       },
       scrollbar: {
         el: '.swiper-scrollbar',
