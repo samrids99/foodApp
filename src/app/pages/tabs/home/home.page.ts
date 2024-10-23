@@ -1,30 +1,57 @@
 import { AfterViewInit, Component, Inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonIcon } from '@ionic/angular/standalone';
+import {
+  IonContent,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
+  IonButton,
+  IonIcon,
+} from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { chevronDownCircle } from 'ionicons/icons';
-import Swiper from 'swiper';
+import SwiperCore, { Swiper } from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
+import { EffectCoverflow } from 'swiper/modules';
+
+SwiperCore.use([EffectCoverflow, Pagination]);
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   standalone: true,
-  imports: [IonIcon, IonButton, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [
+    IonIcon,
+    IonButton,
+    IonContent,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    CommonModule,
+    FormsModule,
+  ],
 })
 export class HomePage implements OnInit, AfterViewInit {
-
-  constructor() { 
-    addIcons({chevronDownCircle});
+  constructor() {
+    addIcons({ chevronDownCircle });
   }
-  
+
   ngAfterViewInit() {
     const swiper = new Swiper('.swiper', {
       modules: [Navigation, Pagination], // Include required modules
-      slidesPerView: 1,
-      spaceBetween: 10,
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+      },
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -36,11 +63,9 @@ export class HomePage implements OnInit, AfterViewInit {
       scrollbar: {
         el: '.swiper-scrollbar',
       },
+      speed: 1000,
     });
   }
 
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
