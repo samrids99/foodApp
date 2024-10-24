@@ -1,0 +1,20 @@
+<ion-item lines="none">
+  <ion-thumbnail slot="start">
+    <img [src]="restaurant?.cover ? restaurant.cover : 'assets/chilaquiles.png'"/>
+  </ion-thumbnail>
+  <ion-label>
+    <h4>{{restaurant?.name}}</h4>
+    <ion-text color="secondary">
+      <p class="pstyle">{{ restaurant?.cuisines.join(', ') }}</p>
+      <span>
+        {{restaurant?.rating}}
+        <ion-icon name="star"></ion-icon>
+        -
+      </span>
+      {{restaurant?.delivery_time}} mins - £{{restaurant?.min_spend}} minimum spend
+      <ion-text style="color: var(--ion-color-primary-shade)" *ngIf="restaurant?.distance && restaurant?.distance != 0">
+        <p class="distance">{{restaurant?.distance | number: '0.0-2'}}km away</p>
+      </ion-text>
+    </ion-text>
+  </ion-label>
+</ion-item>

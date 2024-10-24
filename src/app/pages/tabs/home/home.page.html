@@ -1,4 +1,4 @@
-<ion-header collapse="fade">
+<ion-header>
   <ion-toolbar>
     <ion-title
       ><img id="logo" src="assets/logoFeastFleet.png" alt="company logo"
@@ -7,37 +7,7 @@
 </ion-header>
 
 <ion-content>
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img src="assets/pizza.png" alt="Pizza" />
-      </div>
-      <div class="swiper-slide">
-        <img src="assets/chilaquiles.png" alt="Chilaquiles" />
-      </div>
-      <div class="swiper-slide">
-        <img src="assets/burger.png" alt="Burger" />
-      </div>
-      <div class="swiper-slide">
-        <img src="assets/spagBol.png" alt="Spaghetti Bolognese" />
-      </div>
-      <div class="swiper-slide">
-        <img src="assets/sushi.png" alt="Sushi" />
-      </div>
-      <div class="swiper-slide">
-        <img src="assets/tikka.png" alt="Chicken Tikka" />
-      </div>
-      <div class="swiper-slide">
-        <img src="assets/tacos.png" alt="Tacos" />
-      </div>
-      <div class="swiper-slide">
-        <img src="assets/chowMein.png" alt="Chow Mein" />
-      </div>
-      <div class="swiper-slide">
-        <img src="assets/steak.png" alt="Steak" />
-      </div>
-    </div>
-  </div>
+  <app-banner></app-banner>
 
   <div class="list-of-cards">
     <ion-list>
@@ -47,26 +17,12 @@
           <p>Deliciousness delivered by our fleet!</p>
         </ion-label>
       </ion-list-header>
-      <ion-item lines="none">
-        <ion-thumbnail slot="start">
-          <img src="assets/chilaquiles.png" alt="Chicken Tikka" />
-        </ion-thumbnail>
-        <ion-label>
-          <h4>Mexico Magico</h4>
-          <ion-text color="secondary">
-            <p class="pstyle">Mexican, TexMex</p>
-            <span>
-              5
-              <ion-icon name="star"></ion-icon>
-               - 
-            </span>
-            25 mins - £8 minimum spend
-            <ion-text style="color: var(--ion-color-primary-shade);">
-              <p class="distance">3.1km away</p>
-            </ion-text>
-          </ion-text>
-        </ion-label>
-      </ion-item>
+      <ion-item-group *ngIf="restaurants?.length > 0">
+        <app-restaurant
+          *ngFor="let restaurant of restaurants"
+          [restaurant]="restaurant"
+        ></app-restaurant>
+      </ion-item-group>
     </ion-list>
   </div>
 </ion-content>
