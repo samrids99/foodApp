@@ -44,3 +44,14 @@ ion-header {
 .swiper-slide-fully-visible img {
   height: 100%;
 }
+
+ion-toolbar {
+  height: 55px;
+  background-color: rgb(249, 237, 105);
+}
+
+.toolbar-container {
+  height: 55px !important;
+  width: 100%;
+  background-color: rgb(249, 237, 105);
+}
