@@ -52,10 +52,6 @@ export class HomePage implements OnInit, AfterViewInit {
         modifier: 1,
         slideShadows: true,
       },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
       scrollbar: {
         el: '.swiper-scrollbar',
       },
