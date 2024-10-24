@@ -8,9 +8,13 @@ import {
   IonToolbar,
   IonButton,
   IonIcon,
-} from '@ionic/angular/standalone';
+  IonList, 
+  IonListHeader, 
+  IonLabel, 
+  IonItem, 
+  IonThumbnail, IonText, IonSkeletonText } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { chevronDownCircle } from 'ionicons/icons';
+import { chevronDownCircle, star } from 'ionicons/icons';
 import SwiperCore, { Swiper } from 'swiper';
 import { Pagination } from 'swiper/modules';
 import { EffectCoverflow } from 'swiper/modules';
@@ -22,7 +26,11 @@ SwiperCore.use([EffectCoverflow, Pagination]);
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   standalone: true,
-  imports: [
+  imports: [IonSkeletonText, IonText, 
+    IonItem, 
+    IonLabel, 
+    IonListHeader,
+    IonList, 
     IonIcon,
     IonButton,
     IonContent,
@@ -31,11 +39,12 @@ SwiperCore.use([EffectCoverflow, Pagination]);
     IonToolbar,
     CommonModule,
     FormsModule,
+    IonThumbnail
   ],
 })
 export class HomePage implements OnInit, AfterViewInit {
   constructor() {
-    addIcons({ chevronDownCircle });
+    addIcons({star,chevronDownCircle});
   }
 
   ngAfterViewInit() {

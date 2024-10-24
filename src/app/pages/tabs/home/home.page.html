@@ -1,6 +1,8 @@
 <ion-header collapse="fade">
   <ion-toolbar>
-    <ion-title><img id="logo" src="assets/logoFeastFleet.png" alt="company logo"></ion-title>
+    <ion-title
+      ><img id="logo" src="assets/logoFeastFleet.png" alt="company logo"
+    /></ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -35,5 +37,36 @@
         <img src="assets/steak.png" alt="Steak" />
       </div>
     </div>
+  </div>
+
+  <div class="list-of-cards">
+    <ion-list>
+      <ion-list-header class="ion-margin-bottom">
+        <ion-label>
+          <h4>Restaurants nearby</h4>
+          <p>Deliciousness delivered by our fleet!</p>
+        </ion-label>
+      </ion-list-header>
+      <ion-item lines="none">
+        <ion-thumbnail slot="start">
+          <img src="assets/chilaquiles.png" alt="Chicken Tikka" />
+        </ion-thumbnail>
+        <ion-label>
+          <h4>Mexico Magico</h4>
+          <ion-text color="secondary">
+            <p class="pstyle">Mexican, TexMex</p>
+            <span>
+              5
+              <ion-icon name="star"></ion-icon>
+               - 
+            </span>
+            25 mins - £8 minimum spend
+            <ion-text style="color: var(--ion-color-primary-shade);">
+              <p class="distance">3.1km away</p>
+            </ion-text>
+          </ion-text>
+        </ion-label>
+      </ion-item>
+    </ion-list>
   </div>
 </ion-content>
