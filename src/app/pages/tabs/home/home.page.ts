@@ -10,9 +10,9 @@ import {
   IonList,
   IonTitle,
   IonToolbar,
-  IonItemGroup,
-} from '@ionic/angular/standalone';
+  IonItemGroup, IonSkeletonText } from '@ionic/angular/standalone';
 import { RestaurantComponent } from '../../../components/restaurant/restaurant.component';
+import { LoadingRestaurantComponent } from 'src/app/components/loading-restaurant/loading-restaurant.component';
 
 @Component({
   selector: 'app-home',
@@ -20,6 +20,7 @@ import { RestaurantComponent } from '../../../components/restaurant/restaurant.c
   styleUrls: ['./home.page.scss'],
   standalone: true,
   imports: [
+    IonSkeletonText, 
     IonItemGroup,
     IonHeader,
     CommonModule,
@@ -32,6 +33,7 @@ import { RestaurantComponent } from '../../../components/restaurant/restaurant.c
     IonTitle,
     IonToolbar,
     RestaurantComponent,
+    LoadingRestaurantComponent
   ],
 })
 export class HomePage implements OnInit {
@@ -166,6 +168,7 @@ export class HomePage implements OnInit {
           min_spend: 15,
         },
       ];
-    }, 3000);
+      this.isLoading = false;
+    }, 1500);
   }
 }
