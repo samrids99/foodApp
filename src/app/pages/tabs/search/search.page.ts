@@ -14,6 +14,7 @@ import {
 } from '@ionic/angular/standalone';
 import { LoadingRestaurantComponent } from 'src/app/components/loading-restaurant/loading-restaurant.component';
 import { RestaurantComponent } from '../../../components/restaurant/restaurant.component';
+import { EmptyScreenComponent } from 'src/app/components/empty-screen/empty-screen.component';
 
 @Component({
   selector: 'app-search',
@@ -33,13 +34,18 @@ import { RestaurantComponent } from '../../../components/restaurant/restaurant.c
     CommonModule,
     FormsModule,
     LoadingRestaurantComponent,
-    RestaurantComponent
+    RestaurantComponent,
+    EmptyScreenComponent
   ],
 })
 export class SearchPage implements OnInit {
   @ViewChild('searchInput') sInput: any;
   query: any;
   isLoading: boolean;
+  model: any = {
+    icon: 'search',
+    title: 'No restaurants found',
+  };
 
   allRestaurants: any[] = [
     {
@@ -49,7 +55,6 @@ export class SearchPage implements OnInit {
       cuisines: ['Mexican', 'TexMex'],
       rating: 5.0,
       delivery_time: 25,
-      distance: 3.1,
       min_spend: 8,
     },
     {
@@ -59,7 +64,6 @@ export class SearchPage implements OnInit {
       cuisines: ['Italian', 'Mediteranean'],
       rating: 4.7,
       delivery_time: 30,
-      distance: 4.0,
       min_spend: 12,
     },
     {
@@ -69,7 +73,6 @@ export class SearchPage implements OnInit {
       cuisines: ['Japanese', 'Sushi'],
       rating: 4.1,
       delivery_time: 20,
-      distance: 2.8,
       min_spend: 10,
     },
     {
@@ -79,7 +82,6 @@ export class SearchPage implements OnInit {
       cuisines: ['Chinese', 'Noodles'],
       rating: 3.4,
       delivery_time: 5,
-      distance: 1.0,
       min_spend: 3,
     },
     {
@@ -89,7 +91,6 @@ export class SearchPage implements OnInit {
       cuisines: ['Mexican', 'Tacos'],
       rating: 4.9,
       delivery_time: 11,
-      distance: 1.9,
       min_spend: 5,
     },
     {
@@ -99,7 +100,6 @@ export class SearchPage implements OnInit {
       cuisines: ['Italian', 'Pasta'],
       rating: 4.0,
       delivery_time: 22,
-      distance: 2.3,
       min_spend: 6,
     },
     {
@@ -109,7 +109,6 @@ export class SearchPage implements OnInit {
       cuisines: ['Burgers', 'BBQ'],
       rating: 3.8,
       delivery_time: 15,
-      distance: 1.5,
       min_spend: 6,
     },
     {
@@ -119,7 +118,6 @@ export class SearchPage implements OnInit {
       cuisines: ['Indian', 'Curry'],
       rating: 4.9,
       delivery_time: 10,
-      distance: 0.9,
       min_spend: 3,
     },
     {
@@ -129,7 +127,6 @@ export class SearchPage implements OnInit {
       cuisines: ['Steak', 'Grill'],
       rating: 4.2,
       delivery_time: 40,
-      distance: 4.2,
       min_spend: 15,
     },
   ];
@@ -144,17 +141,22 @@ export class SearchPage implements OnInit {
     }, 500);
   }
 
-  onSearchChange(event) {
+  async onSearchChange(event) {
     console.log(event.detail.value);
     this.query = event.detail.value.toLowerCase();
+    this.restaurants = [];
     if (this.query.length > 0) {
-      this.restaurants = this.allRestaurants.filter((r) => {
-        return (
-          r.name.toLowerCase().includes(this.query) ||
-          r.cuisines.join(' ').toLowerCase().includes(this.query)
-        );
-      });
-      console.log(this.restaurants);
+      this.isLoading = true;
+      setTimeout(async() => {
+        this.restaurants = await this.allRestaurants.filter((r) => {
+          return (
+            r.name.toLowerCase().includes(this.query) ||
+            r.cuisines.join(' ').toLowerCase().includes(this.query)
+          );
+        });
+        console.log(this.restaurants);
+        this.isLoading = false;
+      }, 1500);
     }
   }
 }
