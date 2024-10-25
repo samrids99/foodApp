@@ -15,6 +15,7 @@ import {
 import { LoadingRestaurantComponent } from 'src/app/components/loading-restaurant/loading-restaurant.component';
 import { RestaurantComponent } from '../../../components/restaurant/restaurant.component';
 import { EmptyScreenComponent } from 'src/app/components/empty-screen/empty-screen.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -35,7 +36,8 @@ import { EmptyScreenComponent } from 'src/app/components/empty-screen/empty-scre
     FormsModule,
     LoadingRestaurantComponent,
     RestaurantComponent,
-    EmptyScreenComponent
+    EmptyScreenComponent,
+    RouterLink
   ],
 })
 export class SearchPage implements OnInit {
@@ -49,6 +51,7 @@ export class SearchPage implements OnInit {
 
   allRestaurants: any[] = [
     {
+      uid: 1,
       cover: 'assets/chilaquiles.png',
       name: 'Mexico Magico',
       short_name: 'Mexico',
@@ -58,6 +61,7 @@ export class SearchPage implements OnInit {
       min_spend: 8,
     },
     {
+      uid: 2,
       cover: 'assets/pizza.png',
       name: 'Little Italy',
       short_name: 'Italy',
@@ -67,6 +71,7 @@ export class SearchPage implements OnInit {
       min_spend: 12,
     },
     {
+      uid: 3,
       cover: 'assets/sushi.png',
       name: 'Nippon Sushi',
       short_name: 'Nippon',
@@ -76,6 +81,7 @@ export class SearchPage implements OnInit {
       min_spend: 10,
     },
     {
+      uid: 4,
       cover: 'assets/chowMein.png',
       name: 'China Town',
       short_name: 'China',
@@ -85,6 +91,7 @@ export class SearchPage implements OnInit {
       min_spend: 3,
     },
     {
+      uid: 5,
       cover: 'assets/tacos.png',
       name: 'Grita por Mexico',
       short_name: 'Grita',
@@ -94,6 +101,7 @@ export class SearchPage implements OnInit {
       min_spend: 5,
     },
     {
+      uid: 6,
       cover: 'assets/spagBol.png',
       name: 'Colluseum Pasta',
       short_name: 'Col Pasta',
@@ -103,6 +111,7 @@ export class SearchPage implements OnInit {
       min_spend: 6,
     },
     {
+      uid: 7,
       cover: 'assets/burger.png',
       name: 'Liberty Burgers',
       short_name: 'Liberty',
@@ -112,6 +121,7 @@ export class SearchPage implements OnInit {
       min_spend: 6,
     },
     {
+      uid: 8,
       cover: 'assets/tikka.png',
       name: 'Flavours of India',
       short_name: 'India',
@@ -121,6 +131,7 @@ export class SearchPage implements OnInit {
       min_spend: 3,
     },
     {
+      uid: 9,
       cover: 'assets/steak.png',
       name: 'Argentinian Steakhouse',
       short_name: 'Arg Steak',

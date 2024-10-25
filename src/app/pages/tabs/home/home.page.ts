@@ -13,6 +13,7 @@ import {
   IonItemGroup, IonSkeletonText, IonSpinner, IonItem } from '@ionic/angular/standalone';
 import { RestaurantComponent } from '../../../components/restaurant/restaurant.component';
 import { LoadingRestaurantComponent } from 'src/app/components/loading-restaurant/loading-restaurant.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -33,7 +34,8 @@ import { LoadingRestaurantComponent } from 'src/app/components/loading-restauran
     IonTitle,
     IonToolbar,
     RestaurantComponent,
-    LoadingRestaurantComponent
+    LoadingRestaurantComponent,
+    RouterLink
   ],
 })
 export class HomePage implements OnInit {
@@ -78,6 +80,7 @@ export class HomePage implements OnInit {
 
       this.restaurants = [
         {
+          uid: 1,
           cover: 'assets/chilaquiles.png',
           name: 'Mexico Magico',
           short_name: 'Mexico',
@@ -88,6 +91,7 @@ export class HomePage implements OnInit {
           min_spend: 8,
         },
         {
+          uid: 2,
           cover: 'assets/pizza.png',
           name: 'Little Italy',
           short_name: 'Italy',
@@ -98,6 +102,7 @@ export class HomePage implements OnInit {
           min_spend: 12,
         },
         {
+          uid: 3,
           cover: 'assets/sushi.png',
           name: 'Nippon Sushi',
           short_name: 'Nippon',
@@ -108,6 +113,7 @@ export class HomePage implements OnInit {
           min_spend: 10,
         },
         {
+          uid: 4,
           cover: 'assets/chowMein.png',
           name: 'China Town',
           short_name: 'China',
@@ -118,6 +124,7 @@ export class HomePage implements OnInit {
           min_spend: 3,
         },
         {
+          uid: 5,
           cover: 'assets/tacos.png',
           name: 'Grita por Mexico',
           short_name: 'Grita',
@@ -128,6 +135,7 @@ export class HomePage implements OnInit {
           min_spend: 5,
         },
         {
+          uid: 6,
           cover: 'assets/spagBol.png',
           name: 'Colluseum Pasta',
           short_name: 'Col Pasta',
@@ -138,6 +146,7 @@ export class HomePage implements OnInit {
           min_spend: 6,
         },
         {
+          uid: 7,
           cover: 'assets/burger.png',
           name: 'Liberty Burgers',
           short_name: 'Liberty',
@@ -148,6 +157,7 @@ export class HomePage implements OnInit {
           min_spend: 6,
         },
         {
+          uid: 8,
           cover: 'assets/tikka.png',
           name: 'Flavours of India',
           short_name: 'India',
@@ -158,6 +168,7 @@ export class HomePage implements OnInit {
           min_spend: 3,
         },
         {
+          uid: 9,
           cover: 'assets/steak.png',
           name: 'Argentinian Steakhouse',
           short_name: 'Arg Steak',

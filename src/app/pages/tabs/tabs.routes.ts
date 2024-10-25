@@ -33,4 +33,9 @@ export const routes: Routes = [
     redirectTo: 'tabs/home',
     pathMatch: 'full',
   },
+  {
+    path: 'restaurants/:restaurantId',
+    loadComponent: () => import('./items/items.page').then( m => m.ItemsPage)
+  },
+
 ];
