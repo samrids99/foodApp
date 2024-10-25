@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import SwiperCore, { Swiper } from 'swiper';
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 
@@ -8,10 +9,12 @@ selector: 'app-banner',
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.scss'],
   standalone: true,
+  imports: [CommonModule]
 })
 
 
 export class BannerComponent  implements OnInit, AfterViewInit {
+  @Input() banners: any[];
 
   constructor() { }
 
