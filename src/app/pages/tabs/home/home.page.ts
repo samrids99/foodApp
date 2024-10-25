@@ -10,7 +10,7 @@ import {
   IonList,
   IonTitle,
   IonToolbar,
-  IonItemGroup, IonSkeletonText } from '@ionic/angular/standalone';
+  IonItemGroup, IonSkeletonText, IonSpinner, IonItem } from '@ionic/angular/standalone';
 import { RestaurantComponent } from '../../../components/restaurant/restaurant.component';
 import { LoadingRestaurantComponent } from 'src/app/components/loading-restaurant/loading-restaurant.component';
 
@@ -19,7 +19,7 @@ import { LoadingRestaurantComponent } from 'src/app/components/loading-restauran
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   standalone: true,
-  imports: [
+  imports: [IonItem, IonSpinner, 
     IonSkeletonText, 
     IonItemGroup,
     IonHeader,
@@ -91,7 +91,7 @@ export class HomePage implements OnInit {
           cover: 'assets/pizza.png',
           name: 'Little Italy',
           short_name: 'Italy',
-          cuisines: ['Italian', 'Wine'],
+          cuisines: ['Italian', 'Mediteranean'],
           rating: 4.7,
           delivery_time: 30,
           distance: 4.0,
@@ -121,7 +121,7 @@ export class HomePage implements OnInit {
           cover: 'assets/tacos.png',
           name: 'Grita por Mexico',
           short_name: 'Grita',
-          cuisines: ['Mexican', 'Colombian'],
+          cuisines: ['Mexican', 'Tacos'],
           rating: 4.9,
           delivery_time: 11,
           distance: 1.9,
@@ -151,7 +151,7 @@ export class HomePage implements OnInit {
           cover: 'assets/tikka.png',
           name: 'Flavours of India',
           short_name: 'India',
-          cuisines: ['Indian', 'Curries'],
+          cuisines: ['Indian', 'Curry'],
           rating: 4.9,
           delivery_time: 10,
           distance: 0.9,
@@ -161,7 +161,7 @@ export class HomePage implements OnInit {
           cover: 'assets/steak.png',
           name: 'Argentinian Steakhouse',
           short_name: 'Arg Steak',
-          cuisines: ['Argentinian', 'Grill'],
+          cuisines: ['Steak', 'Grill'],
           rating: 4.2,
           delivery_time: 40,
           distance: 4.2,

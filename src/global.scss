@@ -27,7 +27,8 @@
 @import "swiper/css";
 @import "swiper/css/navigation";
 @import "swiper/css/pagination";
-@import '../node_modules/swiper/swiper-bundle.min.css';
+@import "swiper/css/autoplay";
+@import "../node_modules/swiper/swiper-bundle.min.css";
 
 /**
  * Ionic Dark Mode
@@ -38,17 +39,38 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
-
+@import "@ionic/angular/css/palettes/dark.system.css";
 
 #logo {
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    object-fit: cover;
-    margin-top: 4px;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  object-fit: cover;
+  margin-top: 4px;
+}
+
+ion-header {
+  font-size: 1rem;
+  background-color: rgb(249, 237, 105) !important;
+}
+
+ion-toolbar {
+  height: 55px;
+  background-color: rgb(249, 237, 105) !important;
+  --background: rgb(249, 237, 105) !important;
+  z-index: 1;
 }
 
 ion-title {
-    width: 100%;
+  height: 55px;
+  background-color: rgb(249, 237, 105) !important;
+  padding: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.toolbar-container {
+  height: 55px !important;
+  width: 100%;
+  background-color: rgb(249, 237, 105);
 }

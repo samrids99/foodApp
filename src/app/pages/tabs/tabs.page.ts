@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonTabs, IonTab, IonTabBar, IonTabButton, IonIcon, IonLabel } from '@ionic/angular/standalone';
-import { search, person, cart, fastFood } from 'ionicons/icons';
+import { search, person, cart, fastFood, pizzaOutline } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { Router } from '@angular/router';
 
@@ -32,7 +32,7 @@ export class TabsPage implements OnInit {
   private router = inject(Router);
 
   constructor() {
-    addIcons({fastFood,search,cart,person});
+    addIcons({fastFood,search,cart,person, pizzaOutline});
    }
 
   ngOnInit() {

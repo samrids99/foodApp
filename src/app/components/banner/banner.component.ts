@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import SwiperCore, { Swiper } from 'swiper';
-import { EffectCoverflow, Pagination } from 'swiper/modules';
+import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules';
 
 SwiperCore.use([EffectCoverflow, Pagination]);
 @Component({
@@ -22,11 +22,16 @@ export class BannerComponent  implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     const swiper = new Swiper('.swiper', {
-      modules: [Pagination],
+      modules: [Pagination, Autoplay],
       effect: "coverflow",
       grabCursor: true,
       centeredSlides: true,
       slidesPerView: "auto",
+      loop: true,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
       coverflowEffect: {
         rotate: 50,
         stretch: 0,
