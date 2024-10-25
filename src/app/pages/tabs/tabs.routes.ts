@@ -26,16 +26,20 @@ export const routes: Routes = [
         loadComponent: () =>
           import('../tabs/account/account.page').then((m) => m.AccountPage),
       },
+      {
+        path: '',
+        redirectTo: 'tabs/home',
+        pathMatch: 'full',
+      },
     ],
+  },
+  {
+    path: 'restaurants/:restaurantId',
+    loadComponent: () => import('./items/items.page').then((m) => m.ItemsPage),
   },
   {
     path: '',
     redirectTo: 'tabs/home',
     pathMatch: 'full',
   },
-  {
-    path: 'restaurants/:restaurantId',
-    loadComponent: () => import('./items/items.page').then( m => m.ItemsPage)
-  },
-
 ];
