@@ -16,3 +16,127 @@ ion-back-button {
   color: blue;
   font-size: 2rem;
 }
+
+h1 {
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+.dashedBorderBottom {
+  padding-bottom: 1vh;
+  display: flex;
+  justify-content: center;
+
+  ion-label {
+    text-align: center;
+  }
+
+  p {
+    align-self: center;
+    color: white;
+    font-size: 1rem;
+  }
+}
+
+.columns {
+  p {
+    font-size: 1rem;
+    color: white;
+  }
+}
+
+.veg {
+  align-items: center;
+  padding-bottom: 0;
+}
+
+ion-thumbnail {
+  height: 10vh;
+  width: 20vw;
+
+  img {
+    border-radius: 8px;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+ion-list-header {
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+ion-text {
+  font-size: 0.8rem;
+  p {
+    margin-top: 0.2rem;
+  }
+}
+
+ion-item {
+  ion-row {
+    border: 1px solid #f9ed69;
+    border-radius: 2px;
+    padding: 0.3rem;
+  }
+}
+
+.quantity {
+  width: 2rem;
+}
+
+ion-footer {
+  h4,
+  p {
+    margin-left: 4%;
+  }
+
+  p {
+    font-size: 0.55rem !important;
+    letter-spacing: 0.5px;
+  }
+
+  ion-button {
+    --color: black;
+  }
+}
+
+.img-menu {
+  position: relative;
+  padding: 16px;
+  overflow: hidden;
+  height: 36vh;
+}
+
+.img-menu img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the container without warping */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+.content-overlay {
+  position: absolute;
+  padding: 12px !important;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  color: white;
+  border-radius: 10px;
+  background: rgba(48, 48, 48, 0.4);
+}
+
+.veggie {
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  margin-right: 16px;
+  padding-bottom: 0 !important; 
+}
+
+.menu-item {
+  height: 90px;
+}

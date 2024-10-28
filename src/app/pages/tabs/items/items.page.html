@@ -4,12 +4,99 @@
       <img id="logo" src="assets/logoFeastFleet.png" alt="company logo" />
     </ion-title>
   </ion-toolbar>
-
-  <ion-content>
-    <div class="back">
-      <button class="back-btn" (click)="goBack()">
-        <ion-icon class="back-icon" name="arrow-back-circle"></ion-icon>
-      </button>
-    </div>
-  </ion-content>
 </ion-header>
+
+<ion-content>
+  <div class="back">
+    <button class="back-btn" (click)="goBack()">
+      <ion-icon class="back-icon" name="arrow-back-circle"></ion-icon>
+    </button>
+  </div>
+  <div class="img-menu" *ngIf="restaurant?.cover">
+    <img [src]="restaurant?.cover" alt="banner image" />
+    <ion-grid *ngIf="data?.name" class="content-overlay">
+      <ion-row class="ion-padding-horizontal dashedBorderBottom">
+        <ion-label>
+          <h1>{{data?.name}}</h1>
+          <ion-text *ngIf="data?.cuisines">
+            <p>{{getCuisines(data.cuisines)}}</p>
+          </ion-text>
+          <p>{{data?.address}}</p>
+        </ion-label>
+      </ion-row>
+      <ion-row>
+        <ion-col class="columns" size="4">
+          <ion-label class="ion-text-center">
+            <ion-text>
+              <p><ion-icon name="star"></ion-icon> {{data?.rating}}</p>
+            </ion-text>
+            <p>Rating</p>
+          </ion-label>
+        </ion-col>
+        <ion-col class="columns" size="4">
+          <ion-label class="ion-text-center">
+            <ion-text>
+              <p>{{data?.delivery_time}} mins</p>
+            </ion-text>
+            <p>Delivery Time</p>
+          </ion-label>
+        </ion-col>
+        <ion-col class="columns" size="4">
+          <ion-label class="ion-text-center">
+            <ion-text>
+              <p>£{{data?.min_spend}}</p>
+            </ion-text>
+            <p>Min. spend</p>
+          </ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <ion-row class="ion-padding veg">
+    <ion-label>
+      <h4 class="veggie">Veggie?</h4>
+    </ion-label>
+    <ion-toggle (ionChange)="vegetarian($event)" [(ngModel)]="veg">
+    </ion-toggle>
+  </ion-row>
+
+  <ion-list lines="none" *ngFor="let category of categories">
+    <ion-list-header> {{category?.name}} </ion-list-header>
+    <ng-container *ngFor="let item of items; let i = index">
+      <ion-item *ngIf="category.id == item.category_id">
+        <ion-thumbnail slot="start">
+          <img [src]="item?.cover ? item.cover : 'assets/pizza.png'" />
+        </ion-thumbnail>
+        <ion-label class="menu-item">
+          <h4>{{item?.name}}</h4>
+          <p>{{item?.desc}}</p>
+          <ion-text><p>£{{item?.price | number: '0.2-2'}}</p></ion-text>
+        </ion-label>
+        <ion-row *ngIf="!item?.quantity || item?.quantity <= 0" (click)="quantityPlus(item, i)">
+          <ion-text class="ioon-padding-horizontal">Add</ion-text>
+        </ion-row>
+        <ion-row *ngIf="item?.quantity > 0">
+          <ion-icon name="remove-outline" (click)="quantityMinus(item, i)"></ion-icon>
+          <ion-text class="ion-text-center quantity">{{item?.quantity}}</ion-text>
+          <ion-icon name="add-outline" (click)="quantityPlus(item, i)"></ion-icon>
+        </ion-row>
+      </ion-item>
+    </ng-container>
+  </ion-list>
+</ion-content>
+
+<ion-footer *ngIf="cartData?.totalItem > 0">
+  <ion-toolbar>
+    <ion-label>
+      <h4>{{cartData?.totalItem}} item<span *ngIf="cartData?.totalItem > 1">s</span> | £{{cartData?.totalPrice | number: '0.2-2'}}</h4>
+      <ion-text>
+        <p>extra charges may apply</p>
+      </ion-text>
+    </ion-label>
+    <ion-button slot="end" fill="clear" (click)="viewCart()">
+      <ion-icon slot="end" name="basket-outline"></ion-icon>
+      VIEW CART
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
